@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=Prompt:wght@200;800&display=swap");
+p,
+ul,
+li {
+  margin: 0;
+}
+
+.sceneCarousel {
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+}
+.sceneCarousel .carouselCard {
+  position: relative;
+  left: 0;
+  width: 528px !important;
+  height: 700px;
+  margin: 15% auto;
+  transform: scale(0.7);
+  transition: transform 0.3s 0.1s ease-out;
+  opacity: 0.8;
+  z-index: 5;
+}
+.sceneCarousel .carouselCard .foxCardBack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-left: 3%;
+  background: #013543;
+  border-radius: 2rem;
+}
+.sceneCarousel .carouselCard .foxCardBack .foxCardTitle {
+  position: absolute;
+  bottom: 3%;
+  /* left: 20%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Michroma", sans-serif;
+  /* transition: align-items 1s 1s ease-in-out; */
+}
+.sceneCarousel .carouselCard .foxCardBack .foxCardTitle h3 {
+  margin: 0;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+.sceneCarousel .carouselCard .foxCardBack .foxCardTitle p {
+  /* display: inline; */
+  text-transform: uppercase;
+  color: #1bd6de;
+  font-size: 1.2rem;
+  /* margin: 0 auto; */
+  /* margin-left: 20px; */
+  padding: 0;
+  transition: margin 0.5s 0.5s ease-in-out;
+}
+.sceneCarousel .carouselCard .foxCardBack .descrButton {
+  display: none;
+  position: absolute;
+  right: 2%;
+  bottom: 7%;
+  border: 1px solid #1bd6de;
+  border-radius: 20%;
+  padding: 0.5rem;
+}
+.sceneCarousel .carouselCard .foxCardBack .foxCardTitle[data-isHoverCard=true] {
+  align-items: start;
+}
+.sceneCarousel .carouselCard .foxCardBack .foxCardInner {
+  position: relative;
+  /* top: 2%;
+  left: 4%; */
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: linear-gradient(156deg, #b8208d 22%, rgb(82, 23, 124) 85%);
+  /* box-shadow: 0px 0px 5px rgba(182, 32, 141, 0.8),
+  0px 0px 2px rgba(203, 0, 236, 0.94), -12px 17px 14px rgba(0, 0, 0, 0.09); */
+  border-bottom: 1px solid #005ec9;
+  border-radius: 1.9rem;
+}
+.sceneCarousel .carouselCard .foxCardBack .foxCardInner .foxCardImage {
+  position: absolute;
+  bottom: 0;
+  left: 13%;
+  width: 397.047px;
+}
+.sceneCarousel .carouselCard .foxCardBack .foxCardInner .cardShadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0px -30px 30px #005ec9;
+  border-bottom: 2px solid #005ec9;
+  border-radius: 1.9rem;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 0.5rem;
+  bottom: 12%;
+  font-family: "Prompt", sans-serif;
+  font-size: 1.3rem;
+  color: #fff;
+  width: 100%;
+  display: flex;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock p {
+  color: #fff;
+  font-size: 1.1rem;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .foxDescr {
+  margin: 0.5rem 0;
+  padding: 0 1rem 1.5rem;
+  border-bottom: thick double #1bd6de;
+  box-shadow: 0px 20px 20px -20px rgba(27, 216, 222, 0.5803921569);
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .paramsBlock {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1rem;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .paramsBlock .params {
+  width: 49%;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .paramsBlock .params p {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 1rem;
+  margin: 0.5rem 0;
+  border: thick double rgba(27, 216, 222, 0.5803921569);
+  border-radius: 50px;
+  box-shadow: inset 0 0 10px rgba(27, 216, 222, 0.5803921569);
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .paramsBlock .params p span {
+  color: #1bd6de;
+  float: right;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: thick double rgba(27, 216, 222, 0.5803921569);
+  border-radius: 50px;
+  box-shadow: inset 0 0 10px rgba(27, 216, 222, 0.5803921569);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  color: #fff;
+  font-size: 1.1rem;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .items p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .items p span {
+  font-size: 1.5rem;
+  color: #1bd6de;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .icons span img {
+  margin-right: 0.5rem;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .progressBlock {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .progressBlock .progressItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .progressBlock .progressItem img {
+  width: 25px;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .progressBlock .progressItem .progressBar {
+  width: 90%;
+  height: 30%;
+  border: thick double rgba(27, 216, 222, 0.5803921569);
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(27, 216, 222, 0.5803921569);
+  margin-left: 1rem;
+}
+.sceneCarousel .carouselCard .foxCardBack .dataBlock .progressBlock .progressItem .progressBar .progressFill {
+  width: 0%;
+  height: 50%;
+  background-color: #1bd6de;
+  border: 2px solid rgba(27, 216, 222, 0.5803921569);
+  border-radius: 10px;
+}
+.sceneCarousel .active {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 10;
+  transition: all 0.3s 0.1s ease-in;
+}
+.sceneCarousel .active:hover {
+  width: 800px !important; /*977px*/
+  transform: translateX(-120px);
+  transition: all 0.5s 0.3s ease-in-out;
+}
+.sceneCarousel .active:hover .descrButton {
+  display: block;
+  z-index: 20;
+}
+.sceneCarousel .active .foxCardBack {
+  border: 1px solid #005ec9;
+  box-sizing: border-box;
+  box-shadow: -5px -5px 20px rgba(33, 125, 231, 0.8274509804);
+}
+
+.slick-arrow:before {
+  content: "";
+}
+
+.slick-arrow {
+  width: 40px;
+  height: 40px;
+  border-bottom: 3px solid #1f86fc;
+  border-right: 3px solid #1f86fc;
+  box-shadow: -3px -3px 3px 0px #4591e9 inset;
+  scale: 1;
+  transition: all 0.3s ease-in-out;
+}
+.slick-arrow:hover {
+  scale: 1.1;
+  border-bottom: 3px solid #51a1fd;
+  border-right: 3px solid #51a1fd;
+  box-shadow: -3px -3px 3px 0px #5198e9 inset;
+}
+
+.slick-prev {
+  transform: rotate(-225deg);
+}
+
+.slick-next {
+  transform: rotate(-45deg);
+}/*# sourceMappingURL=FoxCard.css.map */
