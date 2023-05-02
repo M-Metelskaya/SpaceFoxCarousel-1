@@ -1,11 +1,14 @@
 import { FC, useState, useEffect } from "react";
-import { motion, MotionConfig, useAnimationControls } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 import { ICardFox } from "../../FoxCardData";
 import {
   BsRocketFill,
   BsFillStarFill,
   BsFillLightningFill,
 } from "react-icons/bs";
+import { ProgressItem } from "./ProgressItem";
+import { FoxParam } from "./FoxParam";
+import { FoxDataItem } from "./FoxDataItem";
 import "./FoxCard.css";
 
 export const FoxCard: FC<{
@@ -32,17 +35,8 @@ export const FoxCard: FC<{
         opacity: 1,
         scaleY: 1,
         transition: {
-          delay: 1.3,
-          duration: 0.3,
-        },
-      });
-
-      pinkBackControl.start({
-        opacity: 1,
-        scaleY: 1,
-        transition: {
-          delay: 1.5,
-          duration: 0.3,
+          delay: 0.3,
+          duration: 0.5,
         },
       });
 
@@ -50,7 +44,7 @@ export const FoxCard: FC<{
         opacity: 1,
         x: 0,
         transition: {
-          delay: 1.8,
+          delay: 2,
           duration: 0.5,
         },
       });
@@ -166,6 +160,15 @@ export const FoxCard: FC<{
           },
         });
       } else {
+        backCardControl.start({
+          x: -30,
+          transition: {
+            delay: 0.1,
+            duration: 0.5,
+            ease: "easeInOut",
+          },
+        });
+
         dataBackControl.start({
           opacity: 0,
           // display: "none",
@@ -177,7 +180,6 @@ export const FoxCard: FC<{
 
         pinkBackControl.start({
           // width: "96%",
-          // left: "2%",
           height: "82%",
           // borderRadius: "2rem 2rem 0 0",
           transition: {
@@ -246,6 +248,15 @@ export const FoxCard: FC<{
         });
       }
     } else {
+      backCardControl.start({
+        x: 0,
+        transition: {
+          delay: 0.1,
+          duration: 0.5,
+          ease: "easeInOut",
+        },
+      });
+
       pinkBackControl.start({
         height: "100%",
         top: "0%",
@@ -311,6 +322,7 @@ export const FoxCard: FC<{
   return (
     <motion.div
       className="foxCardBack"
+      initial={{ scaleY: 0, x: 0 }}
       onHoverStart={() => {
         isActive ? setIsHoverCard(true) : setIsHoverCard(false);
       }}
@@ -322,6 +334,7 @@ export const FoxCard: FC<{
     >
       <motion.div
         className="foxCardInner"
+        initial={{ height: "100%" }}
         animate={pinkBackControl}
         style={{
           background:
@@ -333,6 +346,7 @@ export const FoxCard: FC<{
         }}
       >
         <motion.img
+          initial={{ left: 0 }}
           animate={foxImageControl}
           className="foxCardImage"
           src={cardFox.img}
@@ -357,6 +371,7 @@ export const FoxCard: FC<{
       <motion.div
         className="foxCardTitle"
         data-ishovercard={isHoverCard}
+        initial={{ left: "18%", bottom: "5%" }}
         animate={cardTitleControl}
       >
         <motion.h3>
@@ -519,81 +534,5 @@ export const FoxCard: FC<{
         </div>
       </motion.div>
     </motion.div>
-  );
-};
-
-const FoxParam: FC<{
-  id: number;
-  paramName: string;
-  paramValue: string;
-  isOpenCard: boolean;
-}> = ({ id, paramName, paramValue, isOpenCard }) => {
-  return (
-    <motion.p>
-      {paramName}
-      <motion.span
-        key={`${paramName}${id}`}
-        initial={{ scaleY: 0 }}
-        animate={isOpenCard ? { scaleY: 1 } : { scaleY: 0 }}
-        transition={{ delay: 0.2, duration: 0.3 }}
-      >
-        {paramValue}
-      </motion.span>
-    </motion.p>
-  );
-};
-
-const FoxDataItem: FC<{
-  id: number;
-  itemName: string;
-  itemValue: number;
-  isOpenCard: boolean;
-}> = ({ id, itemName, itemValue, isOpenCard }) => {
-  return (
-    <p>
-      {itemName}
-      <motion.span
-        key={`population${id}`}
-        initial={{ rotateX: "0deg" }}
-        animate={isOpenCard ? { rotateX: "360deg" } : { rotateX: "0deg" }}
-        transition={{ duration: 1 }}
-      >
-        {itemValue}
-      </motion.span>
-    </p>
-  );
-};
-
-const ProgressItem: FC<{
-  progressParam: number;
-  icon: JSX.Element;
-  isOpenCard: boolean;
-}> = ({ progressParam, icon, isOpenCard }) => {
-  return (
-    <div className="progressItem">
-      <div style={{ color: "#1bd6de" }}>{icon}</div>
-      <div className="progressBar">
-        <motion.div
-          key={progressParam}
-          initial={{
-            width: 0,
-          }}
-          animate={
-            isOpenCard
-              ? {
-                  width: `${progressParam}%`,
-                }
-              : {
-                  width: 0,
-                }
-          }
-          transition={{ duration: 1 }}
-          className="progressFill"
-          // style={{
-          //   width: `${progressParam}%`,
-          // }}
-        ></motion.div>
-      </div>
-    </div>
   );
 };
